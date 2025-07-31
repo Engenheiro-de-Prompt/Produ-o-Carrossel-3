@@ -1,0 +1,6 @@
+{
+  "name": "AI Carousel Generator",
+  "description": "An application that transforms articles or text into engaging social media carousels using AI. Users can customize the visual style and export the final slides.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
