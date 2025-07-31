@@ -6,7 +6,7 @@ import { ArrowLeft, Download, Settings, Loader, Sparkles } from "lucide-react";
 import { Slide, Settings as AppSettings } from "../types";
 import { SlidePreview } from "./SlidePreview";
 import { SettingsModal } from "./SettingsModal";
-import { generateSlides, generateImage } from "../services/aiService";
+import { generateImage } from "../services/aiService";
 import { INITIAL_SETTINGS } from "../constants";
 import { getEmbeddedFontCss } from "../utils";
 
