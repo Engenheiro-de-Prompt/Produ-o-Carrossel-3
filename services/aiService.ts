@@ -26,6 +26,32 @@ const mapAspectRatioToOpenAISize = (aspectRatio: AspectRatio): '1024x1024' | '17
   }
 };
 
+export const generateImage = async (
+  aiProvider: 'gemini' | 'openai',
+  prompt: string,
+  aspectRatio: AspectRatio,
+): Promise<string> => {
+    const apiKey = localStorage.getItem(aiProvider === 'gemini' ? 'geminiApiKey' : 'openaiApiKey') || '';
+    if (!apiKey) {
+        throw new Error('API key not found in local storage.');
+    }
+
+    const settings: GenerationSettings = {
+        apiProvider: aiProvider,
+        aspectRatio: aspectRatio,
+        textModel: aiProvider === 'gemini' ? 'gemini-1.5-flash' : 'gpt-4o',
+        imageModel: aiProvider === 'gemini' ? 'gemini-1.5-flash' : 'dall-e-3',
+        slidePrompt: '',
+        imagePrompt: prompt,
+    };
+
+    if (aiProvider === 'openai') {
+        return callOpenAIImageAPI(prompt, apiKey, settings);
+    } else {
+        return callGeminiImageAPI(prompt, apiKey, settings);
+    }
+};
+
 const callOpenAIImageAPI = async (prompt: string, apiKey: string, settings: GenerationSettings): Promise<string> => {
     const needsCropping = settings.aspectRatio === '4:5';
     

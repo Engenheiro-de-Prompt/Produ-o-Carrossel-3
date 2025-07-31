@@ -1,6 +1,32 @@
+import { AspectRatio } from "../types";
+
 export const parseRatio = (ratio: string): number => {
   const [width, height] = ratio.split(":").map(Number);
   return width / height;
+};
+
+export const findClosestSupportedRatio = (targetRatio: string, supportedRatios: ReadonlyArray<AspectRatio>): string => {
+    if (!targetRatio || typeof targetRatio !== 'string') {
+        return supportedRatios[0];
+    }
+    // If the entered ratio is exactly one of the supported ones, use it.
+    if (supportedRatios.includes(targetRatio as AspectRatio)) {
+        return targetRatio;
+    }
+
+    const targetNumeric = parseRatio(targetRatio);
+    let closestRatio = supportedRatios[0];
+    let minDiff = Infinity;
+
+    for (const supported of supportedRatios) {
+        const supportedNumeric = parseRatio(supported);
+        const diff = Math.abs(targetNumeric - supportedNumeric);
+        if (diff < minDiff) {
+            minDiff = diff;
+            closestRatio = supported;
+        }
+    }
+    return closestRatio;
 };
 
 export const cropImage = async (
