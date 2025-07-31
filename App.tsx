@@ -161,12 +161,9 @@ const App: React.FC = () => {
       case 'editor':
         return (
           <EditorPage
-            slides={slides}
-            settings={settings}
-            onUpdateSlideText={handleUpdateSlideText}
-            onSettingsChange={handleSettingsChange}
-            onCreateNew={handleCreateNew}
-            onRegenerateImage={handleRegenerateImage}
+            initialSlides={slides}
+            initialSettings={settings}
+            onBack={handleCreateNew}
           />
         );
       case 'home':
