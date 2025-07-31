@@ -23,7 +23,7 @@ SLIDE 6 (Bônus/Diferencial): Apresente um recurso extra ou um insight avançado
 SLIDE 7 (CTA): Uma chamada para ação clara e direta. Diga ao leitor o que fazer a seguir.`;
 
 
-export const NEW_IMAGE_GENERATION_PROMPT = `Imagem altamente simbólica e emblemática no formato especificado, com um único símbolo de destaque dentro de um vazio absoluto. Composição em preto e branco com iluminação premiada e temática cyberpunk. O gancho visual deve ser relacionado à tese principal: [TESE_PRINCIPAL]. No vazio absoluto, um só símbolo emerge.
+export const NEW_IMAGE_GENERATION_PROMPT = `Imagem altamente simbólica e emblemática no formato especificado, com um único símbolo de destaque dentro de um vazio absoluto, SEM INFORMAÇÃO, SEM RUÍDO. Composição em preto e branco com iluminação premiada e temática cyberpunk. O gancho visual deve ser relacionado à tese principal: [TESE_PRINCIPAL]. No vazio absoluto, um só símbolo emerge.
 Silhueta isolada entre luz e sombra — ora luz sobre trevas, ora trevas sobre luz.
 Escolha é sorte, não razão: uma forma arquetípica se revela.
 Talvez seja o tempo escoando em silêncio da ampulheta.
